@@ -1,0 +1,23 @@
+Número do Pedido: 3
+Data do Pedido: Sun Feb 07 00:27:53 GMT-03:00 2016
+
+-------------------------------------------------------
+Cliente: IGOR
+Funcionario: ISSOK
+-------------------------------------------------------
+
+Descrição dos itens:
+
+Item: QUALQUER
+Preço Unitário: R$ 12.0
+Quantidade: 3
+Subtotal: R$ 36.0
+
+
+Item: IGOR
+Preço Unitário: R$ 12.0
+Quantidade: 2
+Subtotal: R$ 24.0
+
+
+TOTAL DO PEDIDO: R$ 60.0

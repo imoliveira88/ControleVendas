@@ -1,11 +1,12 @@
 
 package apresentacao;
 
-import apresentacao.Consultas.frmConsPessoas;
+import apresentacao.Consultas.frmConsCliente;
 import apresentacao.Consultas.frmConsProdutos;
 import apresentacao.Cadastros.JFrameProduto;
 import apresentacao.Cadastros.JFrameCliente;
 import apresentacao.Cadastros.JFrameFuncionario;
+import apresentacao.Consultas.frmConsFuncionario;
 
 /**
  *
@@ -41,6 +42,7 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         atendimento = new javax.swing.JMenuItem();
         Consultas = new javax.swing.JMenu();
         consPessoas = new javax.swing.JMenuItem();
+        funcionariosss = new javax.swing.JMenuItem();
         consProdutos = new javax.swing.JMenuItem();
         Relatorios = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -114,13 +116,21 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         Consultas.setText("Consultas");
         Consultas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
-        consPessoas.setText("Pessoas");
+        consPessoas.setText("Clientes");
         consPessoas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consPessoasActionPerformed(evt);
             }
         });
         Consultas.add(consPessoas);
+
+        funcionariosss.setText("Funcionarios");
+        funcionariosss.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                funcionariosssActionPerformed(evt);
+            }
+        });
+        Consultas.add(funcionariosss);
 
         consProdutos.setText("Produtos");
         consProdutos.addActionListener(new java.awt.event.ActionListener() {
@@ -197,7 +207,7 @@ public class JFrameAplicacao extends javax.swing.JFrame {
     }//GEN-LAST:event_pedidoActionPerformed
 
     private void consPessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consPessoasActionPerformed
-        frmConsPessoas frm = new frmConsPessoas();
+        frmConsCliente frm = new frmConsCliente();
         frm.setLocationRelativeTo(null);
         frm.setVisible(true);
     }//GEN-LAST:event_consPessoasActionPerformed
@@ -224,6 +234,12 @@ public class JFrameAplicacao extends javax.swing.JFrame {
             // Chamar tela a ser implementada
     }//GEN-LAST:event_atendimentoActionPerformed
 
+    private void funcionariosssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcionariosssActionPerformed
+        frmConsFuncionario frm = new frmConsFuncionario();
+        frm.setLocationRelativeTo(null);
+        frm.setVisible(true);
+    }//GEN-LAST:event_funcionariosssActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Cadastros;
@@ -236,6 +252,7 @@ public class JFrameAplicacao extends javax.swing.JFrame {
     private javax.swing.JMenuItem atendimento;
     private javax.swing.JMenuItem consPessoas;
     private javax.swing.JMenuItem consProdutos;
+    private javax.swing.JMenuItem funcionariosss;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;

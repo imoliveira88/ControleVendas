@@ -1,5 +1,7 @@
 package apresentacao;
 
+import javax.persistence.Query;
+
 /**
  *
  * @author Magalhães Oliveira
@@ -26,7 +28,11 @@ public class frmVerPedidos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         ControleVendasEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("ControleVendas").createEntityManager();
-        jLabel3 = new javax.swing.JLabel();
+        
+		pedidoQuery = java.beans.Beans.isDesignTime() ? null : ControleVendasEntityManager.createQuery("SELECT c FROM Pedido c");
+        pedidoList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : pedidoQuery.getResultList();
+		
+		jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -37,7 +43,7 @@ public class frmVerPedidos extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setText("Pedidos");
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, pedidoList1, jTable1);
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, pedidoList, jTable1);
         org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${id}"));
         columnBinding.setColumnName("Id");
         columnBinding.setColumnClass(Long.class);
@@ -93,7 +99,7 @@ public class frmVerPedidos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private java.util.List<modelo.Pedido> pedidoList;
-    private java.util.List<modelo.Pedido> pedidoList1;
+    private Query pedidoQuery;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

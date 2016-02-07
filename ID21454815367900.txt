@@ -1,0 +1,17 @@
+Número do Pedido: 2
+Data do Pedido: Sun Feb 07 00:22:47 GMT-03:00 2016
+
+-------------------------------------------------------
+Cliente: IGORTAMBÉM
+Funcionario: ISSOK
+-------------------------------------------------------
+
+Descrição dos itens:
+
+Item: QUALQUER
+Preço Unitário: R$ 12.0
+Quantidade: 2
+Subtotal: R$ 24.0
+
+
+TOTAL DO PEDIDO: R$ 24.0

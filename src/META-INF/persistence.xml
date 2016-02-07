@@ -10,6 +10,7 @@
     <class>modelo.Produto</class>
     <class>apresentacao.TbFuncionario</class>
     <class>apresentacao.TbProduto</class>
+    <class>apresentacao.Consultas.TbFuncionario</class>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:vendas"/>

@@ -14,9 +14,8 @@ import servico.ClienteDAO;
  */
 public class frmRelPPC extends javax.swing.JFrame {
 
-    private List<Pedido> tbPedidoCliente;
+    private List<modelo.Pedido> tbPedidoCliente;
     private Query tbPedidoQueryCliente;
-    private JTable pedidoscliente;
     
     /**
      * Creates new form frmRelPPC
@@ -33,23 +32,55 @@ public class frmRelPPC extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         ControleVendasEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("ControleVendas").createEntityManager();
+        pedidoQuery = java.beans.Beans.isDesignTime() ? null : ControleVendasEntityManager.createQuery("SELECT p FROM Pedido p");
+        pedidoList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : pedidoQuery.getResultList();
+        clienteQuery = java.beans.Beans.isDesignTime() ? null : ControleVendasEntityManager.createQuery("SELECT c FROM Cliente c");
+        clienteList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : clienteQuery.getResultList();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         cliente = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         pedidoscliente = new javax.swing.JTable();
+        listar = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Pedidos Feitos por Cliente Específico");
 
         jLabel2.setText("Cliente: ");
 
+        org.jdesktop.swingbinding.JComboBoxBinding jComboBoxBinding = org.jdesktop.swingbinding.SwingBindings.createJComboBoxBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, clienteList, cliente);
+        bindingGroup.addBinding(jComboBoxBinding);
 
         cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clienteActionPerformed(evt);
+            }
+        });
+
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, pedidoList, pedidoscliente);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${id}"));
+        columnBinding.setColumnName("Id");
+        columnBinding.setColumnClass(Long.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${data}"));
+        columnBinding.setColumnName("Data");
+        columnBinding.setColumnClass(java.util.Date.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${funcionario}"));
+        columnBinding.setColumnName("Funcionario");
+        columnBinding.setColumnClass(modelo.Funcionario.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${total}"));
+        columnBinding.setColumnName("Total");
+        columnBinding.setColumnClass(Double.class);
+        bindingGroup.addBinding(jTableBinding);
+        jTableBinding.bind();
+        jScrollPane1.setViewportView(pedidoscliente);
+
+        listar.setText("Listar");
+        listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listarActionPerformed(evt);
             }
         });
 
@@ -64,66 +95,74 @@ public class frmRelPPC extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(61, 61, 61)
-                        .addComponent(cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)
+                        .addComponent(listar))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(31, 31, 31)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(listar))
+                .addGap(28, 28, 28)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
+        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteActionPerformed
-        tbPedidoQueryCliente = ControleVendasEntityManager.createQuery("SELECT t FROM Pedido t WHERE t.cliente = :cliente");
-        tbPedidoQueryCliente.setParameter("cliente",new ClienteDAO().getIdPorNome(cliente.getSelectedItem().toString()));
         
-        tbPedidoCliente = new ArrayList<>();
-        
-        try{
-            tbPedidoCliente = tbPedidoQueryCliente.getResultList();
-        }catch(NoResultException e){
-            
-        }
-        
-        /*
-        String[] tableColumnsName = {"ID", "DATA", "FUNCIONARIO", "TOTAL"};
-        DefaultTableModel aModel = new DefaultTableModel();
-        aModel.setColumnIdentifiers(tableColumnsName); // query
-        
-        int i = 0;
-        
-        while (i < tbPedidoList.size()) {
-            Object[] objects = new Object[i];
-            for (int j = 0; j <= 3; j++) {
-                objects[j] = tbPedidoList.get(j);
-            }
-            aModel.addRow(objects);
-            i++;
-        }
-
-        pedidoscliente.setModel(aModel);
-        */
     }//GEN-LAST:event_clienteActionPerformed
+
+    private void listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarActionPerformed
+        pedidoQuery = ControleVendasEntityManager.createQuery("SELECT t FROM Pedido t WHERE t.cliente.id = :cliente");
+        pedidoQuery.setParameter("cliente",new ClienteDAO().getIdPorNome(cliente.getSelectedItem().toString()));
+        
+        pedidoList = pedidoQuery.getResultList();;
+      
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, pedidoList, pedidoscliente);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${id}"));
+        columnBinding.setColumnName("Id");
+        columnBinding.setColumnClass(Long.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${data}"));
+        columnBinding.setColumnName("Data");
+        columnBinding.setColumnClass(java.util.Date.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${funcionario}"));
+        columnBinding.setColumnName("Funcionario");
+        columnBinding.setColumnClass(modelo.Funcionario.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${total}"));
+        columnBinding.setColumnName("Total");
+        columnBinding.setColumnClass(Double.class);
+        bindingGroup.addBinding(jTableBinding);
+        jTableBinding.bind();
+        jScrollPane1.setViewportView(pedidoscliente);
+       
+    }//GEN-LAST:event_listarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.persistence.EntityManager ControleVendasEntityManager;
     private javax.swing.JComboBox cliente;
+    private java.util.List<modelo.Cliente> clienteList;
+    private javax.persistence.Query clienteQuery;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton listar;
+    private java.util.List<modelo.Pedido> pedidoList;
+    private javax.persistence.Query pedidoQuery;
+    private javax.swing.JTable pedidoscliente;
     private javax.persistence.EntityManager vendasPUEntityManager;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

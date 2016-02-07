@@ -43,11 +43,11 @@ public class frmNovoPedido extends javax.swing.JFrame {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         ControleVendasEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("ControleVendas").createEntityManager();
-        tbFuncionarioQuery = java.beans.Beans.isDesignTime() ? null : ControleVendasEntityManager.createQuery("SELECT t FROM TbFuncionario t");
+        tbFuncionarioQuery = java.beans.Beans.isDesignTime() ? null : ControleVendasEntityManager.createQuery("SELECT t FROM Funcionario t");
         tbFuncionarioList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : tbFuncionarioQuery.getResultList();
         clienteQuery = java.beans.Beans.isDesignTime() ? null : ControleVendasEntityManager.createQuery("SELECT c FROM Cliente c");
         clienteList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : clienteQuery.getResultList();
-        tbProdutoQuery = java.beans.Beans.isDesignTime() ? null : ControleVendasEntityManager.createQuery("SELECT t FROM TbProduto t");
+        tbProdutoQuery = java.beans.Beans.isDesignTime() ? null : ControleVendasEntityManager.createQuery("SELECT t FROM Produto t");
         tbProdutoList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : tbProdutoQuery.getResultList();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -66,8 +66,6 @@ public class frmNovoPedido extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         total = new javax.swing.JTextField();
         status = new javax.swing.JTextField();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Novo Pedido");
@@ -302,9 +300,9 @@ public class frmNovoPedido extends javax.swing.JFrame {
     private javax.swing.JComboBox produto;
     private javax.swing.JTextField quantidade;
     private javax.swing.JTextField status;
-    private java.util.List<apresentacao.TbFuncionario> tbFuncionarioList;
+    private java.util.List<modelo.Funcionario> tbFuncionarioList;
     private javax.persistence.Query tbFuncionarioQuery;
-    private java.util.List<apresentacao.TbProduto> tbProdutoList;
+    private java.util.List<modelo.Produto> tbProdutoList;
     private javax.persistence.Query tbProdutoQuery;
     private javax.swing.JTextField total;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;

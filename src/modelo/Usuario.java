@@ -8,25 +8,26 @@ import javax.persistence.*;
 @Entity
 @Table(name = "TB_USUARIO")
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "DISC_USUARIO", discriminatorType = DiscriminatorType.STRING, length = 1)
-public class Usuario implements Serializable {
+public abstract class Usuario implements Serializable {
     @Transient
     private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
+
     private static final long serialVersionUID = 1L;
     
     public Usuario(String nome, String tel){
         this.nome = nome;
         this.telefone = tel;
     }
-    
-    public Usuario(){
-        this.nome = "";
-    }
+
+    public Usuario(){};
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_USUARIO")
     private Long id;
+    
+    @Column(name = "TIPO")
+    private String Tipo;
     
     @Column(name = "NOME")
     private String nome;
@@ -34,6 +35,16 @@ public class Usuario implements Serializable {
     @Column(name = "TELEFONE")
     private String telefone;
 
+    public String getTipo() {
+        return Tipo;
+    }
+
+    public void setTipo(String Tipo) {
+        String oldTipo = this.Tipo;
+        this.Tipo = Tipo;
+        changeSupport.firePropertyChange("tipo", oldTipo, Tipo);
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -72,5 +83,6 @@ public class Usuario implements Serializable {
     public void removePropertyChangeListener(PropertyChangeListener listener) {
         changeSupport.removePropertyChangeListener(listener);
     }
+
     
 }

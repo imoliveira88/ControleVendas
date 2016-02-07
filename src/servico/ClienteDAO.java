@@ -22,7 +22,6 @@ public class ClienteDAO extends DAOGenericoJPA<Long, Cliente> {
         List<Cliente> clientes = super.getEm().createQuery(query, Cliente.class).getResultList();
         try{
             for(Cliente cliente : clientes){
-                System.out.println("Igual? " + cliente.igual(p));
                 if(cliente.igual(p)) return true;
             }
             return false;
