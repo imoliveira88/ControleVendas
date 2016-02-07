@@ -1,0 +1,23 @@
+Número do Pedido: 14
+Data do Pedido: Wed Feb 03 19:26:52 GMT-03:00 2016
+
+-------------------------------------------------------
+Cliente: MARCOS
+Funcionario: JULIO
+-------------------------------------------------------
+
+Descrição dos itens:
+
+Item: MACARRAO
+Preço Unitário: R$ 12.0
+Quantidade: 2
+Subtotal: R$ 24.0
+
+
+Item: TRAÇÃO
+Preço Unitário: R$ 50.0
+Quantidade: 3
+Subtotal: R$ 150.0
+
+
+TOTAL DO PEDIDO: R$ 174.0

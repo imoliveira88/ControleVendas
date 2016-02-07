@@ -1,0 +1,23 @@
+Número do Pedido: 15
+Data do Pedido: Wed Feb 03 20:00:37 GMT-03:00 2016
+
+-------------------------------------------------------
+Cliente: GUILHERMEKKK
+Funcionario: JULIO
+-------------------------------------------------------
+
+Descrição dos itens:
+
+Item: REVISÃO EX
+Preço Unitário: R$ 50.0
+Quantidade: 1
+Subtotal: R$ 50.0
+
+
+Item: MACARRAO
+Preço Unitário: R$ 12.0
+Quantidade: 3
+Subtotal: R$ 36.0
+
+
+TOTAL DO PEDIDO: R$ 86.0
