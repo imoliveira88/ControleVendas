@@ -27,13 +27,13 @@ public abstract class Usuario implements Serializable {
     private Long id;
     
     @Column(name = "TIPO")
-    private String Tipo;
+    protected String Tipo;
     
     @Column(name = "NOME")
-    private String nome;
+    protected String nome;
     
     @Column(name = "TELEFONE")
-    private String telefone;
+    protected String telefone;
 
     public String getTipo() {
         return Tipo;

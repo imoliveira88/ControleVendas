@@ -6,16 +6,26 @@ import apresentacao.Consultas.frmConsProdutos;
 import apresentacao.Cadastros.JFrameProduto;
 import apresentacao.Cadastros.JFrameCliente;
 import apresentacao.Cadastros.JFrameFuncionario;
+import apresentacao.Consultas.frmConsEntreDatas;
 import apresentacao.Consultas.frmConsFuncionario;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /**
  *
  * @author Magalhães Oliveira
  */
 public class JFrameAplicacao extends javax.swing.JFrame {
+    
+    private BufferedImage img = null;    
 
-    public JFrameAplicacao() {
+    public JFrameAplicacao() throws IOException {
         super("Controle de Vendas - Guilherme");
+        this.img =  ImageIO.read(new File("C:\\Users\\Magalhães Oliveira\\Documents\\NetBeansProjects\\ControleVendas\\src\\img\\kawa.jpg"));
         initComponents();
     }
 
@@ -37,16 +47,16 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         Funcionario = new javax.swing.JMenuItem();
         Produtos = new javax.swing.JMenuItem();
         Pedir = new javax.swing.JMenu();
+        atendimento = new javax.swing.JMenuItem();
         pedido = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        atendimento = new javax.swing.JMenuItem();
         Consultas = new javax.swing.JMenu();
         consPessoas = new javax.swing.JMenuItem();
         funcionariosss = new javax.swing.JMenuItem();
         consProdutos = new javax.swing.JMenuItem();
         Relatorios = new javax.swing.JMenu();
+        entreDatas = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
         verPedidos = new javax.swing.JMenuItem();
 
         jMenu3.setText("jMenu3");
@@ -94,6 +104,14 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         Pedir.setText("Pedidos");
         Pedir.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
+        atendimento.setText("Atendimento Inicial");
+        atendimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atendimentoActionPerformed(evt);
+            }
+        });
+        Pedir.add(atendimento);
+
         pedido.setText("Novo Pedido");
         pedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,14 +120,6 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         });
         Pedir.add(pedido);
         Pedir.add(jSeparator1);
-
-        atendimento.setText("Atendimento Inicial");
-        atendimento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atendimentoActionPerformed(evt);
-            }
-        });
-        Pedir.add(atendimento);
 
         jMenuBar1.add(Pedir);
 
@@ -145,6 +155,14 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         Relatorios.setText("Relatórios");
         Relatorios.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
+        entreDatas.setText("Pedidos entre Datas");
+        entreDatas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entreDatasActionPerformed(evt);
+            }
+        });
+        Relatorios.add(entreDatas);
+
         jMenuItem4.setText("Pedidos por Cliente");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,9 +170,6 @@ public class JFrameAplicacao extends javax.swing.JFrame {
             }
         });
         Relatorios.add(jMenuItem4);
-
-        jMenuItem5.setText("Pedidos por Funcionário");
-        Relatorios.add(jMenuItem5);
 
         verPedidos.setText("Ver Pedidos");
         verPedidos.addActionListener(new java.awt.event.ActionListener() {
@@ -240,6 +255,20 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         frm.setVisible(true);
     }//GEN-LAST:event_funcionariosssActionPerformed
 
+    private void entreDatasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entreDatasActionPerformed
+        frmConsEntreDatas frm = new frmConsEntreDatas();
+        frm.setLocationRelativeTo(null);
+        frm.setVisible(true);
+    }//GEN-LAST:event_entreDatasActionPerformed
+
+    @Override  
+    public void paintComponents(Graphics g) { 
+        super.paintComponents(g);        
+        Graphics gr = (Graphics2D)g.create();
+        //gr.drawImage(img, 0, 0, null);
+        gr.drawImage(this.img,this.getWidth(),this.getHeight(),this);  
+        gr.dispose();     
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Cadastros;
@@ -252,13 +281,13 @@ public class JFrameAplicacao extends javax.swing.JFrame {
     private javax.swing.JMenuItem atendimento;
     private javax.swing.JMenuItem consPessoas;
     private javax.swing.JMenuItem consProdutos;
+    private javax.swing.JMenuItem entreDatas;
     private javax.swing.JMenuItem funcionariosss;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JMenuItem pedido;
     private javax.swing.JMenuItem verPedidos;
