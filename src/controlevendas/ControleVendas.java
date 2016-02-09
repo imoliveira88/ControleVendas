@@ -6,6 +6,7 @@
 package controlevendas;
 
 import apresentacao.*;
+import java.awt.Toolkit;
 import java.io.IOException;
 import modelo.*;
 import servico.*;
@@ -24,6 +25,8 @@ public class ControleVendas {
         JFrameAplicacao jFrameAplicacao = new JFrameAplicacao(); // Cria o Frame principal
         jFrameAplicacao.setLocationRelativeTo(null); // Frame no centro 
         jFrameAplicacao.setVisible(true); // Mostra o Frame
+        jFrameAplicacao.setIconImage(Toolkit.getDefaultToolkit().getImage("img\\kawa.PNG"));
+     
     }
     
 }

@@ -24,8 +24,7 @@ public class JFrameAplicacao extends javax.swing.JFrame {
     private BufferedImage img = null;    
 
     public JFrameAplicacao() throws IOException {
-        super("Controle de Vendas - Guilherme");
-        this.img =  ImageIO.read(new File("C:\\Users\\Magalhães Oliveira\\Documents\\NetBeansProjects\\ControleVendas\\src\\img\\kawa.jpg"));
+        super("GI Moto Peças");
         initComponents();
     }
 
@@ -41,11 +40,13 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Cadastros = new javax.swing.JMenu();
         Cliente = new javax.swing.JMenuItem();
         Funcionario = new javax.swing.JMenuItem();
         Produtos = new javax.swing.JMenuItem();
+        atualizaProduto = new javax.swing.JMenuItem();
         Pedir = new javax.swing.JMenu();
         atendimento = new javax.swing.JMenuItem();
         pedido = new javax.swing.JMenuItem();
@@ -68,13 +69,17 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/kawa.jpg"))); // NOI18N
+
         jMenuBar1.setBackground(new java.awt.Color(204, 255, 204));
         jMenuBar1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jMenuBar1.setMinimumSize(new java.awt.Dimension(100, 5));
 
+        Cadastros.setBackground(new java.awt.Color(204, 255, 204));
         Cadastros.setText("Cadastros");
         Cadastros.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
+        Cliente.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Cliente.setText("Clientes");
         Cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +88,7 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         });
         Cadastros.add(Cliente);
 
+        Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Funcionario.setText("Funcionarios");
         Funcionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +97,7 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         });
         Cadastros.add(Funcionario);
 
+        Produtos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Produtos.setText("Produtos");
         Produtos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,11 +106,22 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         });
         Cadastros.add(Produtos);
 
+        atualizaProduto.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        atualizaProduto.setText("Atualiza Produto");
+        atualizaProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atualizaProdutoActionPerformed(evt);
+            }
+        });
+        Cadastros.add(atualizaProduto);
+
         jMenuBar1.add(Cadastros);
 
+        Pedir.setBackground(new java.awt.Color(255, 255, 204));
         Pedir.setText("Pedidos");
         Pedir.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
+        atendimento.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         atendimento.setText("Atendimento Inicial");
         atendimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +130,7 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         });
         Pedir.add(atendimento);
 
+        pedido.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         pedido.setText("Novo Pedido");
         pedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,6 +138,8 @@ public class JFrameAplicacao extends javax.swing.JFrame {
             }
         });
         Pedir.add(pedido);
+
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 0));
         Pedir.add(jSeparator1);
 
         jMenuBar1.add(Pedir);
@@ -126,6 +147,7 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         Consultas.setText("Consultas");
         Consultas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
+        consPessoas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         consPessoas.setText("Clientes");
         consPessoas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,6 +156,7 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         });
         Consultas.add(consPessoas);
 
+        funcionariosss.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         funcionariosss.setText("Funcionarios");
         funcionariosss.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,6 +165,7 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         });
         Consultas.add(funcionariosss);
 
+        consProdutos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         consProdutos.setText("Produtos");
         consProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,6 +179,7 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         Relatorios.setText("Relatórios");
         Relatorios.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
+        entreDatas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         entreDatas.setText("Pedidos entre Datas");
         entreDatas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,6 +188,7 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         });
         Relatorios.add(entreDatas);
 
+        jMenuItem4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jMenuItem4.setText("Pedidos por Cliente");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,6 +197,7 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         });
         Relatorios.add(jMenuItem4);
 
+        verPedidos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         verPedidos.setText("Ver Pedidos");
         verPedidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,11 +214,13 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 612, Short.MAX_VALUE)
+            .addComponent(jLabel2)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 465, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel2)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -261,6 +290,12 @@ public class JFrameAplicacao extends javax.swing.JFrame {
         frm.setVisible(true);
     }//GEN-LAST:event_entreDatasActionPerformed
 
+    private void atualizaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizaProdutoActionPerformed
+        frmAtualizaProduto frm = new frmAtualizaProduto();
+        frm.setLocationRelativeTo(null);
+        frm.setVisible(true);
+    }//GEN-LAST:event_atualizaProdutoActionPerformed
+
     @Override  
     public void paintComponents(Graphics g) { 
         super.paintComponents(g);        
@@ -279,10 +314,12 @@ public class JFrameAplicacao extends javax.swing.JFrame {
     private javax.swing.JMenuItem Produtos;
     private javax.swing.JMenu Relatorios;
     private javax.swing.JMenuItem atendimento;
+    private javax.swing.JMenuItem atualizaProduto;
     private javax.swing.JMenuItem consPessoas;
     private javax.swing.JMenuItem consProdutos;
     private javax.swing.JMenuItem entreDatas;
     private javax.swing.JMenuItem funcionariosss;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;

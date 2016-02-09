@@ -1,0 +1,23 @@
+Número do Pedido: 4
+Data do Pedido: Mon Feb 08 10:28:16 GMT-03:00 2016
+
+-------------------------------------------------------
+Cliente: IGOR
+Funcionario: IGOR
+-------------------------------------------------------
+
+Descrição dos itens:
+
+Item: COISA BOA
+Preço Unitário: R$ 12.0
+Quantidade: 3
+Subtotal: R$ 36.0
+
+
+Item: OUTRA COISA
+Preço Unitário: R$ 12.0
+Quantidade: 2
+Subtotal: R$ 24.0
+
+
+TOTAL DO PEDIDO: R$ 60.0
