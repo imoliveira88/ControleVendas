@@ -205,6 +205,7 @@ public class frmConsEntreDatas extends javax.swing.JFrame {
                 bindingGroup.addBinding(jTableBinding);
                 jTableBinding.bind();
             }
+            else JOptionPane.showMessageDialog(null, "Não há pedidos no período informado!");
                        
         } catch (ParseException ex) {
             Logger.getLogger(frmConsEntreDatas.class.getName()).log(Level.SEVERE, null, ex);
