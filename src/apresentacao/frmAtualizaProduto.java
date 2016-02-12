@@ -24,10 +24,6 @@ public class frmAtualizaProduto extends javax.swing.JFrame {
      */
     public frmAtualizaProduto() {
         
-        URL url = this.getClass().getResource("/img/kawa.PNG");
-        Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
-        this.setIconImage(imagemTitulo);
-        
         initComponents();
     }
 

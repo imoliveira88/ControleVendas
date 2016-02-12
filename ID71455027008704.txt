@@ -1,0 +1,23 @@
+Número do Pedido: 7
+Data do Pedido: Tue Feb 09 11:10:08 GMT-03:00 2016
+
+-------------------------------------------------------
+Cliente: MAGALH
+Funcionario: IGOR
+-------------------------------------------------------
+
+Descrição dos itens:
+
+Item: COISA BOA
+Preço Unitário: R$ 12.0
+Quantidade: 3
+Subtotal: R$ 36.0
+
+
+Item: OUTRA COISA
+Preço Unitário: R$ 12.0
+Quantidade: 66
+Subtotal: R$ 792.0
+
+
+TOTAL DO PEDIDO: R$ 828.0

@@ -108,6 +108,7 @@ public class frmNovoPedido extends javax.swing.JFrame {
 
         total.setEditable(false);
         total.setFont(new java.awt.Font("Tahoma", 0, 24));
+        total.setBorder(null);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
